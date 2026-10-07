@@ -1,4 +1,5 @@
 from fastapi import FastAPI
+from fastapi.responses import JSONResponse
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from typing import List
@@ -127,4 +128,9 @@ def calculate_metrics(data: RequestData):
             "breaches": breaches
         }
 
-    return results
+        return JSONResponse(
+        content=results,
+        headers={
+            "Access-Control-Allow-Origin": "*"
+        }
+    )
