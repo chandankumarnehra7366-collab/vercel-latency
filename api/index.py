@@ -128,7 +128,7 @@ def calculate_metrics(data: RequestData):
             "breaches": breaches
         }
 
-        return JSONResponse(
+    return JSONResponse(
         content=results,
         headers={
             "Access-Control-Allow-Origin": "*"
